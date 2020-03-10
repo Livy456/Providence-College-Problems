@@ -1,0 +1,121 @@
+import java.util.*;
+
+public class Band 
+{
+	public static void main(String[]args)
+	{
+		int first;
+		int outSum;
+		int cenSum;
+		ArrayList <Integer> num = new ArrayList();
+		Scanner in = new Scanner(System.in);
+		
+		first = inputInt(in);
+		num = inputArray(in, first);
+		outSum = sumOutside(num, first);
+		cenSum = sumCenter(num, first);
+		System.out.println(num);
+		System.out.println("First band is " + outSum);
+		System.out.println("Second is  " + cenSum);
+	}
+	// Function Section
+	public static int inputInt(Scanner in)
+	{
+		int num;
+		
+		System.out.print("");
+		num = in.nextInt();
+		
+		return num;
+	}
+	
+	public static ArrayList<Integer> inputArray(Scanner in, int first)
+	{
+		ArrayList<Integer> days = new ArrayList();
+		int num; 
+		
+		for(int i = 0; i < first; i++)
+		{
+			System.out.print("");
+			num = in.nextInt();
+			days.add(num);
+		}
+		
+		return days;
+	}
+	
+	public static int sumOutside (ArrayList<Integer> num, int first)
+	{
+		int topSum = 0;
+		int botSum = 0;
+		int midSum = 0;
+		int size = 0;
+		int sum1 = 0;
+		int row = 0;
+		
+		size = num.size();
+		
+		for(int i = 0; i < first; i++)
+		{
+			topSum += num.get(i);
+		}
+		
+		for(int i = size - first; i < size; i++)
+		{
+			botSum += num.get(i);
+		}
+		
+		for(int i = first; i < size - first; i++)
+		{
+			if (i == first)
+			{
+				midSum += num.get(i);
+			}
+			
+			else if(size%i == 0)
+			{
+				midSum += num.get(i);
+				row+= 1;
+			}
+			
+			else if(i == (size - (i * row) - 1))
+			{
+				midSum += num.get(i);
+			}
+		}
+		
+		sum1 = topSum + botSum + midSum;
+		
+		return sum1;
+	}
+	
+	public static int sumCenter (ArrayList<Integer> num, int first)
+	{
+		ArrayList<Integer> sum = new ArrayList();
+		int cenSum = 0;
+		int row = 0;
+		int size;
+		
+		size = num.size();
+		
+		for(int i = first; i < size - first; i++)
+		{
+			if (size%i == 0)
+			{
+				row += 1;
+			}
+			
+			else if(i == (size - (i * row) - 1))
+			{
+				cenSum += 0;
+			}
+			
+			else
+			{
+				cenSum += num.get(i);
+			}
+		}
+		
+		return cenSum;
+	}
+}
