@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class Sequence 
+{
+	public static void main(String[]args)
+	{
+		int num1;
+		int num2;
+		int output;
+		Scanner in = new Scanner(System.in);
+		
+		num1 = inputInt(in);
+		num2 = inputInt(in);
+		output = sequence(num1, num2);
+		
+		System.out.print(output);
+	}
+	// Function Section
+	public static int inputInt(Scanner in)
+	{
+		int num;
+		
+		System.out.println("");
+		num = in.nextInt();
+		
+		return num;
+	}
+	
+	public static int sequence(int num1, int num2)
+	{
+		int num = 0;
+		int add = 1;
+		
+		for (int i = 2; i <= num2; i++)
+		{
+			add = add + i;
+			num = (num1 + add) / i;
+			num1 = num;
+		}
+		
+		return num;
+	}
+}
