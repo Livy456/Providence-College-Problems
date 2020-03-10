@@ -6,7 +6,7 @@ public class Band
 	{
 		int first;
 		int outSum;
-		int cenSum;
+		int cenSum = 0;
 		ArrayList <Integer> num = new ArrayList();
 		Scanner in = new Scanner(System.in);
 		
@@ -36,9 +36,12 @@ public class Band
 		
 		for(int i = 0; i < first; i++)
 		{
-			System.out.print("");
-			num = in.nextInt();
-			days.add(num);
+			for (int j = 0; j < first; j++)
+			{	
+				System.out.print("");
+				num = in.nextInt();
+				days.add(num);
+			}
 		}
 		
 		return days;
@@ -78,7 +81,7 @@ public class Band
 				row+= 1;
 			}
 			
-			else if(i == (size - (i * row) - 1))
+			else if(i == (size - (first * row) - 1))
 			{
 				midSum += num.get(i);
 			}
@@ -105,7 +108,7 @@ public class Band
 				row += 1;
 			}
 			
-			else if(i == (size - (i * row) - 1))
+		else if(i == (size - (first * row) - 1))
 			{
 				cenSum += 0;
 			}
