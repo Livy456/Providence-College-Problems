@@ -1,0 +1,90 @@
+import java.util.*;
+import java.text.DecimalFormat;
+
+public class Temperatures 
+{
+	public static void main(String[]args)
+	{
+		String average;
+		int low;
+		int high;
+		Scanner in = new Scanner(System.in);
+		DecimalFormat df;
+		df = new DecimalFormat("0.00");
+		ArrayList<Integer> days = new ArrayList();
+		
+		days = inputArray(in);
+		low = inputLow(days);
+		high = inputHigh(days);
+		average = average(df, days);
+		
+		System.out.println(high + " " + low + " " + average);
+	}
+	// Function Section
+	public static ArrayList<Integer> inputArray(Scanner in)
+	{
+		ArrayList<Integer> days = new ArrayList();
+		int num; 
+		
+		for(int i = 0; i < 7; i++)
+		{
+			System.out.print("");
+			num = in.nextInt();
+			days.add(num);
+		}
+		
+		return days;
+	}
+	
+	public static String average(DecimalFormat df, ArrayList<Integer> days)
+	{
+		double num;
+		String num1;
+		double sum = 0.00;
+		
+		for(int i = 0; i < days.size(); i++)
+		{
+			sum += days.get(i);
+		}
+		
+		num = sum / days.size();
+		num1 = df.format(num);
+		
+		return num1;
+	}
+	
+	public static int inputLow(ArrayList<Integer> days)
+	{
+		int low = 0;
+		
+		low = days.get(0);
+		
+		for(int i = 0; i < days.size(); i++)
+		{
+			if (low > days.get(i))
+			{
+				low = days.get(i);
+			}
+		}
+		
+		return low;
+	}
+	
+	public static int inputHigh(ArrayList<Integer> days)
+	{
+		int high = 0;
+		
+		high = days.get(0);
+		
+		for(int i = 0; i < days.size(); i++)
+		{
+			if (high < days.get(i))
+			{
+				high = days.get(i);
+			}
+		}
+		
+		return high;
+	}
+	
+}
