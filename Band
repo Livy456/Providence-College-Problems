@@ -78,6 +78,7 @@ public class Band
 		{
 			if (i == 0)
 			{
+				row += 1;
 				midSum += mid.get(i);
 				System.out.println("first middle num" + mid.get(i));
 			}
@@ -89,10 +90,15 @@ public class Band
 				System.out.println("left side " + mid.get(i));
 			}
 			
-			else if(i == ((mid.size() - (first * row)) - 1))
+			else if(i == (mid.size() - (first * row) - 1))
 			{
 				midSum += mid.get(i);
 				System.out.println("right side " + mid.get(i));
+			}
+			
+			else if(i == mid.size() - 1)
+			{
+				midSum += mid.get(i);
 			}
 		}
 		
