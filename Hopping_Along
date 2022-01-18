@@ -211,3 +211,4 @@ public class Hopping_Along
 		return output;
 	}
 }
+vim: syntax=java
