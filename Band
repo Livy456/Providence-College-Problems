@@ -148,3 +148,4 @@ public class Band
 		return cenSum;
 	}
 }
+vim: syntax=java
