@@ -1,2 +1,2 @@
 # Providence-College-Problems
-Went to Programming Competition at Providence College 
+My programming club team travelled Providence College to compete in a 3 hour long hackathon. 
